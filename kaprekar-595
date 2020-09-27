@@ -1,0 +1,58 @@
+{
+	int c = 0;
+	int tmp;
+	loop:	tmp = reverse(in)
+	tmp -= in;
+	tmp & 0x7fff ffff //bitmask clear sign bit
+	++c;
+	if(in!= 6174)
+	  goto loop;
+	return c;
+}
+
+int reverse(int in){
+	int out = in/1000;
+	out += (in/100)%10;
+	out += (in/10)%10;
+	out += in%10;
+	return out;
+}
+
+
+
+//in in esi
+xor eax, eax
+loop: mov ebx, esi
+call reverse
+sub esi, ebx
+and esi, 0x7fff ffff ;bitmask clear sign bit
+inc eax
+cmp esi, #6174
+jne loop
+ret
+
+reverse:    ;ebx
+push eax
+mov eax, ebx
+idiv #10
+mov esi, eax
+mov eax, edx
+imul #10
+mov edi, eax
+mov eax, esi
+xor edx, edx
+idiv #10
+add esi, eax    ;this whole block migjt b wrong idk tired+rushed
+mov eax, edx
+imul #10
+mov edi, eax
+mov eax, esi
+xor edx, edx
+idiv #10
+add esi, eax
+mov eax, edx
+imul #10
+add eax, edx
+mov ebx, eax
+pop eax
+ret

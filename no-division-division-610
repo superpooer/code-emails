@@ -1,0 +1,17 @@
+//inputs are a/b
+int ctr = 0;
+while(a>=b){
+  a -=b;
+	ctr++;
+}
+return ctr; //it said ignore remainder, that would be whataever's left in a
+
+
+
+
+//a is in ecx, b is in ebx
+xor eax, eax
+loop: inc eax
+sub ecx, ebx
+jl loop           ; jump if sf
+dec eax

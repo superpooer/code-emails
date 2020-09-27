@@ -1,0 +1,17 @@
+int i =0;
+int c=a[0];
+while(c <= a[i+1])
+  c = a[++i];
+return a[i+1];
+
+
+
+// &s is in esi
+xor ecx, ecx ;i
+xor eax, eax
+xor ebx, ebx
+loop: mov ebx, [esi + ecx]
+inc ecx
+mov eax, [esi + ecx]
+cmp ebx, eax
+jle loop

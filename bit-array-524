@@ -1,0 +1,38 @@
+Good morning! Here's your coding interview problem for today.
+
+This problem was asked by Amazon.
+
+Implement a bit array.
+
+A bit array is a space efficient array that holds a value of 1 or 0 at each index.
+
+init(size): initialize the array with size
+set(i, val): updates index at i with val where val is either 1 or 0.
+get(i): gets the value at index i.
+
+
+
+
+
+uint8_t* init(int size){
+  return calloc((size/8)+1);
+}
+
+void set(int i, int val){
+  switch(val){
+	  case 0:
+		  array[(i/8) + 1] = (array[(i/8)+1]) & (<bitwide-inverse>(1<<(i % 8)));
+			break;
+		case 1:
+		  array[(i/8) + 1] = (array[(i/8)+1]) | (1<<(i % 8));
+			break;
+		default:
+		  error;
+	}
+}
+
+int get(int i){
+  uint8_t hh = array[(i/8)+1];
+	hh &= (<bitwise-inverse>(1<<i%8))
+  return (hh > 0);
+}
