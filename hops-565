@@ -5,3 +5,46 @@ This problem was asked by Pinterest.
 Given an integer list where each number represents the number of hops you can make, determine whether you can reach to the last index starting at index 0.
 
 For example, [2, 0, 1, 0] returns True while [1, 1, 0, 1] returns False.
+
+//greedy
+int i =0;
+int h = array[i];
+while(h!=0){
+  h--;
+	i++;
+	h += array[i];
+}
+return (i==alen);
+
+
+//not greedy
+int i =0;
+int h = array[i];
+while(h!=0){
+  h--;
+	i++;
+	h = array[i];
+}
+return (i==alen);
+
+
+
+//alen is in edi
+push ebx
+push ecx
+xor eax eax
+xor ecx, ecx
+mov ebx, [array]
+cmp ebx, #0
+je end
+loop: dec ebx
+inc ecx
+add ebx, [array + ecx]    ;replace add with mov for non-greedy
+cmp ebx, #0
+jne loop
+end:
+cmp ecx, edi
+cmove eax, #1
+pop ecx
+pop ebx
+ret
