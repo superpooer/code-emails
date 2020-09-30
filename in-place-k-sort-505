@@ -1,0 +1,7 @@
+Good morning! Here's your coding interview problem for today.
+
+This problem was asked by Amazon.
+
+Given an array and a number k that's smaller than the length of the array, rotate the array to the right k elements in-place
+
+lol i camt think how to sprt fully in-place in omly c but in asm its piss easy because you have like 8 free vars in the form of regs
