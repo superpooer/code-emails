@@ -21,3 +21,25 @@ int fib_n(int n){
 	}
 	return (x>y) ? x : y;
 }
+
+
+
+// n is in edi
+mov ecx, #1
+mov eax, #1
+cmp edi, #1
+jg nnn
+ret
+nnn: cmp edi, #2
+jg hhh
+ret
+hhh: add ecx, eax
+dec edi
+jz end
+add eax, ecc
+dec edi
+jz end
+jmp hhh
+end: cmp eax, ecx
+cmovl eax, ecx
+ret
