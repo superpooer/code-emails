@@ -3,3 +3,18 @@ Good morning! Here's your coding interview problem for today.
 This problem was asked by Pivotal.
 
 Write an algorithm that finds the total number of set bits in all integers between 1 and N.
+
+
+
+int setbits(int in){
+  int t = 0;
+	if(in==1){
+		++t;
+		--n;
+	}
+	while(in != 0){
+		t += (in %2);
+		in = in >>1;
+	}
+	return t;
+}
