@@ -13,7 +13,7 @@ int setbits(int in){
 		--n;
 	}
 	while(in != 0){
-		t += (in %2);
+		t += !(in %2);
 		in = in >>1;
 	}
 	return t;
