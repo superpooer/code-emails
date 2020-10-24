@@ -18,3 +18,5 @@ int setbits(int in){
 	}
 	return t;
 }
+
+//recently discovered popcnt x86 inst does exactly this lol
