@@ -5,3 +5,5 @@
 *c-/asm-like ie theyre valid c/asm syntax respectively but not fully functional; they have no boilerplate such as main() or sometimes other waffly code*
 
 *one day ill put them in a valid c file and compule them all to see how bad i am*
+
+*that day is when i find a small c compiler that supports intel syntax inline assembly*

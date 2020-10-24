@@ -3,3 +3,55 @@ Good morning! Here's your coding interview problem for today.
 This problem was asked by Apple.
 
 Implement a queue using two stacks. Recall that a queue is a FIFO (first-in, first-out) data structure with the following methods: enqueue, which inserts an element into the queue, and dequeue, which removes it.
+
+
+enqeueueueueue pushes to stack one, so stack one is a stack of everything
+dequeueueueuueue pushes to stackzero everything popped from stackone, so stackzero is now a reversed stack of everything (ie fi to stackone is now fo from stackzero)
+enqueueuue puts everything back to stackone before pushing of course
+
+
+
+int stackone[32];
+int stackzero[32];
+int sp1 = 0;
+int sp0 = 0;
+
+void push(int s, int in){
+	if(s){
+		if(sp1 < 32)
+			stackone[sp1++] = in;
+		else printf("sp1 > 32");
+	}
+	else{
+		if(sp0 < 32)
+			stackzero[sp0++] = in;
+		else printf("sp0 > 32");
+	}
+}
+
+int pop(int s, int in){
+	int out;
+	if(s){
+		if(sp1 > 0)
+			out = stackone[sp1--];
+		else printf("sp1 < 0");
+  }
+	else{
+		if(sp0 > 0)
+			out = stackzero[sp0--];
+		else printf("sp0 < 0");
+	}
+	return out;
+}
+
+void enqueue(int in){
+  while(sp2)
+		push(1, pop(0));		//make sure every value is in stackone
+  push(1, in);
+}
+
+int dequeue(){
+	while(sp1)
+		push(0, pop(1));		//make sure every value is in stackzero ie backwards
+	return pop(0);
+}
