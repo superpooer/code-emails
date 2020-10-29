@@ -5,3 +5,23 @@ This problem was asked by Amazon.
 Run-length encoding is a fast and simple method of encoding strings. The basic idea is to represent repeated successive characters as a single count and character. For example, the string "AAAABBBCCDAA" would be encoded as "4A3B2C1D2A".
 
 Implement run-length encoding and decoding. You can assume the string to be encoded have no digits and consists solely of alphabetic characters. You can assume the string to be decoded is valid.
+
+
+char* encode(char* in){
+	int idx = 0;
+	int odx = 0;
+	char* out;
+	int ctr;
+	while(in[idx+1] != EOL){
+		if(in[idx+1] == in[idx])
+			++ctr;
+		else{
+			out[odx] = chartoint(ctr);
+			out[odx+1] = in[idx];
+			odx += 2;
+			ctr = 0;
+		}
+		++idx;
+	}
+	return out;
+}
