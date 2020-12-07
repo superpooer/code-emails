@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <string.h> //for s.length in bracket count(s)
+#include <string.h> //for strlen in bracket count(s)
 
 void abs_path();
 void all_set_bits();
