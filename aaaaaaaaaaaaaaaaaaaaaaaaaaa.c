@@ -76,6 +76,14 @@ int get(int i){
 	hh &= (<bitwise-inverse>(1<<i%8))
   return (hh > 0);
 }
+Good morning! Here's your coding interview problem for today.
+
+ This problem was asked by Google.
+
+Given a string of parentheses, write a function to compute the minimum number of parentheses to be removed to make the string valid (i.e. each open parenthesis is eventually closed).
+For example, given the string "()())()", you should return 1. Given the string ")(", you should return 2, since we must remove all of them.
+
+
 int i=0;
 char c;
 int o=0;
@@ -142,6 +150,13 @@ This problem was asked by Microsoft.
 Given a clock time in hh:mm format, determine, to the nearest degree, the angle between the hour and the minute hands.
 
 Bonus: When, during the course of a day, will the angle be zero?
+Good morning! Here's your coding interview problem for today.
+
+This problem was asked by Salesforce.
+
+Connect 4 is a game where opponents take turns dropping red or black discs into a 7 x 6 vertically suspended grid. The game ends either when one player creates a line of four consecutive discs of their color (horizontally, vertically, or diagonally), or when there are no more spots left in the grid.
+
+Design and implement Connect 4.
 This problem was asked by Google.
 
 Implement integer exponentiation. That is, implement the pow(x, y) function, where x and y are integers and returns x^y.

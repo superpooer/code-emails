@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h> //for s.length in bracket count(s)
 
 void abs_path();
 void all_set_bits();
@@ -23,7 +24,11 @@ void rotated_array();
 void run_length_transcoder();
 void sevenish();
 void shortest_substring();
-void sqrt();
+void msqrt();
 void three_stacks();
 void tower_of_hanoi();
 void url_shortener();
+void utf_checker();
+void running_median();
+void spreadsheet_col_encoder();
+void connect_four();

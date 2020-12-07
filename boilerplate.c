@@ -24,10 +24,14 @@ int main(){
 	run_length_transcoder();
 	sevenish();
 	shortest_substring();
-	sqrt();
+	msqrt();
 	three_stacks();
 	tower_of_hanoi();
 	url_shortener();
+	utf_checker();
+	running_median();
+	spreadsheet_col_encoder();
+	connect_four();
 	return 0;
 }
 
@@ -86,7 +90,11 @@ int countbrackets(char *s){
 	char c;
 	int o=0;
 	int l=0;
+<<<<<<< HEAD
 	while(i < s.length()){
+=======
+	while(i <= strlen(s)){
+>>>>>>> 40e9116 (lil more boiler)
 		c = s[i];
 		++i;
 		if(c=='(')
@@ -100,6 +108,10 @@ int countbrackets(char *s){
 	return t;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 40e9116 (lil more boiler)
 ////&s is in esi
 //xor ecx, ecx ;i
 //xor eax, eax ;(
@@ -120,6 +132,13 @@ int countbrackets(char *s){
 
 void bracket_count(){
 	printf("\nbracket_count");
+	printf("\nGood morning! Here's your coding interview problem for today.");
+	printf("\nThis problem was asked by Google.");
+	printf("\nGiven a string of parentheses, write a function to compute\nthe minimum number of parentheses to be removed\nto make the string valid (i.e. each open parenthesis is eventually closed).");
+	printf("\nFor example, given the string \"()())()\", you should return 1.\nGiven the string \")(\", you should return 2, since we must remove all of them.");
+	printf("%s: %i, %s: %i, %s: %i", "()()", countbrackets("()()"),
+			"(}]([](]][]", countbrackets("(}]([](]][]"),
+			"(((((", countbrackets("((((("));
 }
 
 void cardinal_test(){
@@ -134,8 +153,50 @@ void fast_pow(){
 	printf("\nfast_pow");
 }
 
+int fib_n(int n){
+  int x = 1;
+	int y = 1;
+	n -= 2; //the first 2 terms are 1 and 1, we already have those
+					//making our ""first"" term 2, the real 3rd term.
+	if(n <= 0) return 1; //input 1 or 2 hits this
+	while(n > 0){
+	  y += x;
+		--n;
+		if (n == 0) //y and x have to be the result alternately, its this or xchg
+		  break;
+		x += y;
+		--n;
+	}
+	return (x>y) ? x : y;
+}
+
+//// n is in edi
+//mov ecx, #1
+//mov eax, #1
+//cmp edi, #1
+//jg nnn
+//ret
+//nnn: cmp edi, #2
+//jg hhh
+//ret
+//hhh: add ecx, eax
+//dec edi
+//jz end
+//add eax, ecc
+//dec edi
+//jz end
+//jmp hhh
+//end: cmp eax, ecx
+//cmovl eax, ecx
+//ret
+
 void fib(){
 	printf("\nfib");
+	printf("\nGood morning! Here's your coding interview problem for today.");
+	printf("\nThis problem was asked by Apple.");
+	printf("\nImplement the function fib(n), which returns the\nnth number in the Fibonacci sequence, using only O(1) space.");
+	printf("\nC: fib(%i) = %i, fib(%i) = %i, fib(%i) = %i", 3, fib_n(3), 7, fib_n(7), 20, fib_n(20));
+	printf("\nasm: sponge\n");
 }
 
 void game_of_life(){
@@ -190,8 +251,8 @@ void shortest_substring(){
 	printf("\nshortest_substring");
 }
 
-void sqrt(){
-	printf("\nsqrt");
+void msqrt(){
+	printf("\nmsqrt");
 }
 
 void three_stacks(){
@@ -216,4 +277,8 @@ void running_median(){
 
 void spreadsheet_col_encoder(){
 	printf("\nspreadsheet_col_encoder");
+}
+
+void connect_four(){
+	printf("\nconnect_four\n");
 }
