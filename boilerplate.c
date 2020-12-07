@@ -104,6 +104,13 @@ int countbrackets(char *s){
 	return t;
 }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> 2b9caff (lil more boiler)
+>>>>>>> b38f94b (uhh)
 ////&s is in esi
 //xor ecx, ecx ;i
 //xor eax, eax ;(
