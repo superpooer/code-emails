@@ -90,11 +90,7 @@ int countbrackets(char *s){
 	char c;
 	int o=0;
 	int l=0;
-<<<<<<< HEAD
-	while(i < s.length()){
-=======
 	while(i <= strlen(s)){
->>>>>>> 40e9116 (lil more boiler)
 		c = s[i];
 		++i;
 		if(c=='(')
@@ -108,10 +104,6 @@ int countbrackets(char *s){
 	return t;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 40e9116 (lil more boiler)
 ////&s is in esi
 //xor ecx, ecx ;i
 //xor eax, eax ;(
