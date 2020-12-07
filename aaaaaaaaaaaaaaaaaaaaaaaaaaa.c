@@ -1,8 +1,43 @@
+Given an absolute pathname that may have . or .. as part of it, return the shortest standardised path.
+
+For example, given "/usr/bin/../bin/./sripts/../" return "/usr/bin".
+Good morning! Here's your coding interview problem for today.
+
+This problem was asked by Pivotal.
+
+Write an algorithm that finds the total number of set bits in all integers between 1 and N.
 
 
 
-/*
+int setbits(int in){
+  int t = 0;
+	if(in==1){
+		++t;
+		--n;
+	}
+	while(in != 0){
+		t += !(in %2);
+		in = in >>1;
+	}
+	return t;
+}
 
+//recently discovered popcnt x86 inst does exactly this lol
+Good morning! Here's your coding interview problem for today.
+
+This problem was asked by Yahoo.
+
+Write a function that returns the bitwise AND of all integers between M and N, inclusive.
+
+and_all(int m, int n){
+	int c = m;
+	int t = m;
+	while(c < n){
+		++c;
+		t &= c;
+	}
+	return t;
+}
 Good morning! Here's your coding interview problem for today.
 
 This problem was asked by Amazon.
@@ -461,6 +496,23 @@ char* encode(char* in){
 }
 Good morning! Here's your coding interview problem for today.
 
+This problem was asked by Microsoft.
+
+Compute the running median of a sequence of numbers. That is, given a stream of numbers, print out the median of the list so far on each new element.
+
+Recall that the median of an even-numbered list is the average of the two middle numbers.
+
+For example, given the sequence [2, 1, 5, 7, 2, 0, 5], your algorithm should print out:
+
+2
+1.5
+2
+3.5
+2
+2
+2
+Good morning! Here's your coding interview problem for today.
+
 This problem was asked by Zillow.
 
 Let's define a "sevenish" number to be one which is either a power of 7, or the sum of unique powers of 7. The first few sevenish numbers are 1, 7, 8, 49, and so on. Create an algorithm to find the nth sevenish number.
@@ -473,6 +525,13 @@ Given a string and a set of characters, return the shortest substring containing
 For example, given the string "figehaeci" and the set of characters {a, e, i}, you should return "aeci".
 
 If there is no substring containing all the characters in the set, return null.
+Good morning! Here's your coding interview problem for today.
+
+This problem was asked by Dropbox.
+
+Spreadsheets often use this alphabetical encoding for its columns: "A", "B", "C", ..., "AA", "AB", ..., "ZZ", "AAA", "AAB", ....
+
+Given a column number, return its alphabetical column id. For example, given 1, return "A". Given 27, return "AA".
 Good morning! Here's your coding interview problem for today.
 
 Given a real number n, find the square root of n. For example, given n = 9, return 3.
@@ -509,4 +568,22 @@ restore(short), which expands the shortened string into the original url. If no 
 Hint: What if we enter the same URL twice?
 
 //hashing modulo etc
-*/
+Good morning! Here's your coding interview problem for today.
+
+This problem was asked by Google.
+
+UTF-8 is a character encoding that maps each symbol to one, two, three, or four bytes.
+
+For example, the Euro sign, €, corresponds to the three bytes 11100010 10000010 10101100. The rules for mapping characters are as follows:
+
+For a single-byte character, the first bit must be zero.
+For an n-byte character, the first byte starts with n ones and a zero. The other n - 1 bytes all start with 10.
+Visually, this can be represented as follows.
+
+ Bytes   |           Byte format
+-----------------------------------------------
+   1     | 0xxxxxxx
+   2     | 110xxxxx 10xxxxxx
+   3     | 1110xxxx 10xxxxxx 10xxxxxx
+   4     | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+Write a program that takes in an array of integers representing byte values, and returns whether it is a valid UTF-8 encoding.

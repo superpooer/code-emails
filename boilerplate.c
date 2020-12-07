@@ -81,6 +81,43 @@ void bit_array(){
 	printf("\nbit_array");
 }
 
+int countbrackets(char *s){
+	int i=0;
+	char c;
+	int o=0;
+	int l=0;
+	while(i < s.length()){
+		c = s[i];
+		++i;
+		if(c=='(')
+			++o;
+		else if(c==')')
+			++l;
+	}
+	int t=o-i;
+	if(t<0)
+		t *= -1;
+	return t;
+}
+
+////&s is in esi
+//xor ecx, ecx ;i
+//xor eax, eax ;(
+//xor ebx, ebx ;)
+//loop: mov edx, [esi + ecx]
+//cmp edx, 0	 ;null termd string
+//je end
+//cmp edx, (
+//caddeq eax, 1
+//cmp edx, )   ;could this and below be replaced with caddne ebx, 1?
+//caddeq ebx, 1
+//inc ecx
+//jmp loop
+//end: sub eax, ebx
+//jge skip
+//neg eax
+//skip: ret
+
 void bracket_count(){
 	printf("\nbracket_count");
 }
