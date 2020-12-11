@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h> //for strlen in bracket count(s)
 
 void abs_path();
