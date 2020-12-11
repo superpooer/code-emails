@@ -32,6 +32,8 @@ int main(){
 	running_median();
 	spreadsheet_col_encoder();
 	connect_four();
+	three_stack_quack();
+	printf("\n");	//get rid of annoying % at end when you dont
 	return 0;
 }
 
@@ -128,7 +130,7 @@ void bracket_count(){
 	printf("\nThis problem was asked by Google.");
 	printf("\nGiven a string of parentheses, write a function to compute\nthe minimum number of parentheses to be removed\nto make the string valid (i.e. each open parenthesis is eventually closed).");
 	printf("\nFor example, given the string \"()())()\", you should return 1.\nGiven the string \")(\", you should return 2, since we must remove all of them.");
-	printf("%s: %i, %s: %i, %s: %i", "()()", countbrackets("()()"),
+	printf("\n%s: %i, %s: %i, %s: %i", "()()", countbrackets("()()"),
 			"(}]([](]][]", countbrackets("(}]([](]][]"),
 			"(((((", countbrackets("((((("));
 }
@@ -598,5 +600,20 @@ Given a column number, return its alphabetical column id. For example, given 1, 
 }
 
 void connect_four(){
-	printf("\nconnect_four\n");
+	printf("\nconnect_four");
+}
+
+void three_stack_quack(){
+	printf("\nGood morning! Here's your coding interview problem for today.");
+	printf("\nThis problem was asked by Google.");
+	printf("\nA quack is a data structure combining properties of both stacks and queues.");
+	printf("\nIt can be viewed as a list of elements written left to right,");
+	printf("\nsuch that three operations are possible:");
+	printf("\npush(x): add a new item x to the left end of the list");
+	printf("\npop(): remove and return the item on the left end of the list");
+	printf("\npull(): remove the item on the right end of the list.");
+	printf("\nImplement a quack using three stacks and O(1) additional memory, so that the");
+	printf("\namortized time for any push, pop, or pull operation is O(1).");
+	printf("\n ----- check sauce :) -----\n");
+	//why three stacks? same as queue_stack but add a pop(), ie done with 2 stacksd a pop(), ie done with 2 stacks
 }

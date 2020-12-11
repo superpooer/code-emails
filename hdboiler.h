@@ -33,3 +33,4 @@ void utf_checker();
 void running_median();
 void spreadsheet_col_encoder();
 void connect_four();
+void three_stack_quack();
