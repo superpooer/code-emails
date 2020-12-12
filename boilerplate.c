@@ -284,28 +284,21 @@ void in_place_k_sort(){
 	printf("\nin_place_k_sort");
 }
 
-int reverse(int in){
-//	int out = in/1000;
-//	out += ((in/100)%10)*10;
-//	out += ((in/10)%10)*100;
-//	out += (in%10)*1000;
-//	return out;
-}
 
 int kapr(int in){
 	int c = 0;
-	int tmp = in;
-	int rtmp;
-	//while(in != 6174){
-	for (int w = 10; w != 0; --w){
-		printf("\ntop of loop rtmp %i tmp %i", rtmp, tmp);
-		rtmp = reverse(tmp);
-		tmp -= rtmp;
-		if(tmp < 0) tmp *= -1;
-		//tmp & 0x7fffffff //bitmask clear sign bit
+	int tmp;
+	char ar[4];
+	char out[4];
+	cv2ar(in, &ar);
+	cpar(&outr, &ar);
+	do{
+		swpar(&ar, &out);
+		revrsar(&outr);
+		kpr_sub(&ar, &outr);
+		tmp = cva2i(&out);
 		++c;
-		printf("\nbottom of loop rtmp %i tmp %i", rtmp, tmp);
-	}
+	}while(tmp != 6174);
 	return c;
 }
 
