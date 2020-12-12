@@ -284,19 +284,6 @@ void in_place_k_sort(){
 	printf("\nin_place_k_sort");
 }
 
-int kapr(int in){
-	int c = 0;
-	int tmp;
-	while(int != 6174){
-		tmp = reverse(in)
-		tmp -= in;
-		if(tmp < 0) tmp *= -1;
-		//tmp & 0x7fffffff //bitmask clear sign bit
-		++c;
-	}
-	return c;
-}
-
 int reverse(int in){
 	int out = in/1000;
 	out += (in/100)%10;
@@ -305,6 +292,18 @@ int reverse(int in){
 	return out;
 }
 
+int kapr(int in){
+	int c = 0;
+	int tmp;
+	while(in != 6174){
+		tmp = reverse(in);
+		tmp -= in;
+		if(tmp < 0) tmp *= -1;
+		//tmp & 0x7fffffff //bitmask clear sign bit
+		++c;
+	}
+	return c;
+}
 
 
 ////in in esi
