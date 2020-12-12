@@ -284,8 +284,70 @@ void in_place_k_sort(){
 	printf("\nin_place_k_sort");
 }
 
+int kapr(int in){
+	int c = 0;
+	int tmp;
+	while(int != 6174){
+		tmp = reverse(in)
+		tmp -= in;
+		if(tmp < 0) tmp *= -1;
+		//tmp & 0x7fffffff //bitmask clear sign bit
+		++c;
+	}
+	return c;
+}
+
+int reverse(int in){
+	int out = in/1000;
+	out += (in/100)%10;
+	out += (in/10)%10;
+	out += in%10;
+	return out;
+}
+
+
+
+////in in esi
+//xor eax, eax
+//loop: mov ebx, esi
+//call reverse
+//sub esi, ebx
+//and esi, 0x7fff ffff ;bitmask clear sign bit
+//inc eax
+//cmp esi, #6174
+//jne loop
+//ret
+//
+//reverse:    ;ebx
+//push eax
+//mov eax, ebx
+//idiv #10
+//mov esi, eax
+//mov eax, edx
+//imul #10
+//mov edi, eax
+//mov eax, esi
+//xor edx, edx
+//idiv #10
+//add esi, eax    ;this whole block migjt b wrong idk tired+rushed
+//mov eax, edx
+//imul #10
+//mov edi, eax
+//mov eax, esi
+//xor edx, edx
+//idiv #10
+//add esi, eax
+//mov eax, edx
+//imul #10
+//add eax, edx
+//mov ebx, eax
+//pop eax
+//ret
 void kaprekar(){
-	printf("\nkaprekar");
+	printf("\n\nhow many steps to kaprekar's constant (6174)");
+	printf("\nwhere a step is n' = |(reverse(n) - n)|");
+	printf("\n\nC: %i: %i, %i: %i, %i: %i",
+				3003, kapr(3003), 4178, kapr(4178), 9929, kapr(9929));
 }
 
 void multi_bracket_count(){
