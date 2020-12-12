@@ -285,22 +285,26 @@ void in_place_k_sort(){
 }
 
 int reverse(int in){
-	int out = in/1000;
-	out += (in/100)%10;
-	out += (in/10)%10;
-	out += in%10;
-	return out;
+//	int out = in/1000;
+//	out += ((in/100)%10)*10;
+//	out += ((in/10)%10)*100;
+//	out += (in%10)*1000;
+//	return out;
 }
 
 int kapr(int in){
 	int c = 0;
-	int tmp;
-	while(in != 6174){
-		tmp = reverse(in);
-		tmp -= in;
+	int tmp = in;
+	int rtmp;
+	//while(in != 6174){
+	for (int w = 10; w != 0; --w){
+		printf("\ntop of loop rtmp %i tmp %i", rtmp, tmp);
+		rtmp = reverse(tmp);
+		tmp -= rtmp;
 		if(tmp < 0) tmp *= -1;
 		//tmp & 0x7fffffff //bitmask clear sign bit
 		++c;
+		printf("\nbottom of loop rtmp %i tmp %i", rtmp, tmp);
 	}
 	return c;
 }
