@@ -341,7 +341,11 @@ int kapr(int in){
 //ret
 void kaprekar(){
 	printf("\n\nhow many steps to kaprekar's constant (6174)");
-	printf("\nwhere a step is n' = |(reverse(n) - n)|");
+	printf("\nwhere the result is the numerically ordered form of the input");
+	printf("\nwhich then has its reverse subtracted from itself");
+	printf("\nand the result is the input to the next cycle of this process");
+	printf("\nuntil the result equals 6174");
+	printf("\na number where all 4 digits are the same is an invalid input");
 	printf("\n\nC: %i: %i, %i: %i, %i: %i",
 				3003, kapr(3003), 4178, kapr(4178), 9929, kapr(9929));
 }
