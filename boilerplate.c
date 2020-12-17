@@ -33,6 +33,7 @@ int main(){
 	spreadsheet_col_encoder();
 	connect_four();
 	three_stack_quack();
+	lfu_cache();
 	printf("\n");	//get rid of annoying % at end when you dont
 	return 0;
 }
@@ -678,4 +679,16 @@ void three_stack_quack(){
 	printf("\namortized time for any push, pop, or pull operation is O(1).");
 	printf("\n ----- check sauce :) -----\n");
 	//why three stacks? same as queue_stack but add a pop(), ie done with 2 stacksd a pop(), ie done with 2 stacks
+}
+
+void lfu_cache(){
+	printf("\nGood morning! Here's your coding interview problem for today.");
+	printf("\nThis problem was asked by Google.");
+	printf("\nImplement an LFU (Least Frequently Used) cache.");
+	printf("\nIt should be able to be initialized with a cache size n, and contain the following methods:");
+	printf("\nset(key, value): sets key to value.");
+	printf("\nIf there are already n items in the cache and we are adding a new item, then it should also remove the least frequently used item.");
+	printf("\nIf there is a tie, then the least recently used key should be removed.");
+	printf("\nget(key): gets the value at key. If no such key exists, return null.");
+	printf("\nEach operation should run in O(1) time.");
 }
