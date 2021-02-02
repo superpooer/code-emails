@@ -140,8 +140,32 @@ void cardinal_test(){
 	printf("\ncardinal_test");
 }
 
+int clang(int i, char c){
+	if(c == 'h')
+		return i * (360/12);
+	else return i * (360/60);
+}
+
 void clock_angle(){
-	printf("\nclock_angle");
+	printf("\nclock_angle\n");
+	printf("\nGood morning! Here's your coding interview problem for today.");
+	printf("\nThis problem was asked by Microsoft.");
+	printf("\nGiven a clock time in hh:mm format, determine,");
+	printf("\nto the nearest degree, the angle between the hour and the minute hands.");
+	printf("\nBonus: When, during the course of a day, will the angle be zero?");
+	printf("\n\nC: 12:17 = h=%i, m=%i", clang(12, 'h'), clang(17, 'm'));
+	printf("\n   05:46 = h=%i, m=%i", clang(5, 'h'), clang(46, 'm'));
+	printf("\n   02:01 = h=%i, m=%i", clang(2, 'h'), clang(1, 'm'));
+	printf("\n\nC for loop searching for when angles match:");
+	int ch, cm;
+	for(int h = 1; h < 13; ++h){
+		for(int m = 0; m < 61; ++m){
+			ch = clang(h, 'h');
+			cm = clang(m, 'm');
+			if(ch == cm)
+				printf("\nh=%i m=%i", h, m);
+		}
+	}
 }
 
 void fast_pow(){
@@ -285,21 +309,20 @@ void in_place_k_sort(){
 	printf("\nin_place_k_sort");
 }
 
-
 int kapr(int in){
 	int c = 0;
-	int tmp;
+/*	int tmp;
 	char ar[4];
-	char out[4];
+	char outr[4];
 	cv2ar(in, &ar);
 	cpar(&outr, &ar);
 	do{
-		swpar(&ar, &out);
+		swpar(&ar, &outr);
 		revrsar(&outr);
 		kpr_sub(&ar, &outr);
-		tmp = cva2i(&out);
+		tmp = cva2i(&outr);
 		++c;
-	}while(tmp != 6174);
+	}while(tmp != 6174);*/
 	return c;
 }
 
@@ -677,8 +700,7 @@ void three_stack_quack(){
 	printf("\npull(): remove the item on the right end of the list.");
 	printf("\nImplement a quack using three stacks and O(1) additional memory, so that the");
 	printf("\namortized time for any push, pop, or pull operation is O(1).");
-	printf("\n ----- check sauce :) -----\n");
-	//why three stacks? same as queue_stack but add a pop(), ie done with 2 stacksd a pop(), ie done with 2 stacks
+	printf("\nwhy three stacks? same as queue_stack but add a pop(), ie done with 2 stacksd a pop(), ie done with 2 stacks");
 }
 
 void lfu_cache(){
