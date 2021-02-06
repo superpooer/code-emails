@@ -1,0 +1,128 @@
+void i2s(int in, char** s){
+	*s[3] = in%10;
+	*s[2] = (in/10)%10;
+	*s[1] = (in/100)%10;
+	*s[0] = (in/1000);
+}
+int s2i(char *s){
+	int i = (int)s[3];
+	i *= 10;
+	i += (int)s[2];
+	i *= 10;
+	i += (int)s[1];
+	i *= 10;
+	i += (int)s[0];
+	return i;
+}
+void sorts(char **s){
+	int smallest = 11;
+	int small2 = 11;
+	int biggest = -1;
+	int big2 = -1;
+
+	for(int i = 4; i != 0; --i){
+		if((int)*s[i] < smallest)
+			smallest = (int)*s[i];
+		if((int)*s[i] > biggest)
+			biggest = (int)*s[i];
+		if((int)*s[i] < small2){
+			if (!((int)*s[i] == smallest))
+				small2 = (int)*s[i];
+		if((int)*s[i] > big2)
+			if (!((int)*s[i] == biggest))
+				big2 = (int)*s[i];
+		}
+	}
+	if (small2 == 11) small2 == smallest;
+	if (big2 == -1) big2 == biggest; //eg 3355: biggest: 5, smallest: 3, small2: 11 bc == smallest, big2: -1 bc == biggest
+}
+void flips(char **s, char **d){
+	*s[0] = *d[3];
+	*s[1] = *d[2];
+	*s[2] = *d[1];
+	*s[3] = *d[0];
+}
+int isgrtr(char **s, char **c){
+	return (s2i(&s) > s2i(&c));
+}
+void subks(char **s, char **f){
+	int tmp = s2i(&s) - s2i(&f);
+	i2s(tmp, &s);
+}
+int kapr(int in){
+	if((in == 1111)  ||
+			(in == 2222) ||
+			(in == 3333) ||
+			(in == 4444) ||
+			(in == 5555) ||
+			(in == 6666) ||
+			(in == 7777) ||
+			(in == 8888) ||
+			(in == 9999)) return -1;
+	int c = 0;
+	char s[4], f[4];
+	i2s(in, &s);
+	while(s2i(s) != 6174){
+		sorts(&s);
+		flips(&s, &f);
+		if(isgrtr(&s, &f)) subks(&s, &f);
+			else subks(&f, &s); //both of these leave the result in s
+		++c;
+	}
+	return c;
+}
+
+
+////in in esi
+//xor eax, eax
+//loop: mov ebx, esi
+//call reverse
+//sub esi, ebx
+//and esi, 0x7fff ffff ;bitmask clear sign bit
+//inc eax
+//cmp esi, #6174
+//jne loop
+//ret
+//
+//reverse:    ;ebx
+//push eax
+//mov eax, ebx
+//idiv #10
+//mov esi, eax
+//mov eax, edx
+//imul #10
+//mov edi, eax
+//mov eax, esi
+//xor edx, edx
+//idiv #10
+//add esi, eax    ;this whole block migjt b wrong idk tired+rushed
+//mov eax, edx
+//imul #10
+//mov edi, eax
+//mov eax, esi
+//xor edx, edx
+//idiv #10
+//add esi, eax
+//mov eax, edx
+//imul #10
+//add eax, edx
+//mov ebx, eax
+//pop eax
+//ret
+void kaprekar(){
+	printf("\n\nhow many steps to kaprekar's constant (6174)");
+	printf("\nwhere the result is the numerically ordered form of the input");
+	printf("\nwhich then has its reverse subtracted from itself");
+	printf("\nand the result is the input to the next cycle of this process");
+	printf("\nuntil the result equals 6174");
+	printf("\na number where all 4 digits are the same is an invalid input");
+	int t1, t2, t3;
+	t1 = kapr(3003);
+	t2 = kapr(4178);
+	t3 = kapr(9929);
+	if((t1 == -1) || (t2 == -1) ||(t3 == -1))
+		printf("\nkaprekar starting number must have 2 distinct digits\n");
+	else
+		printf("\n\nC: %i: %i, %i: %i, %i: %i",
+						3003, t1, 4178, t2, 9929, t3);
+}

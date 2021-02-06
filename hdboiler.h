@@ -12,7 +12,6 @@ void cardinal_test();
 void clock_angle();
 void fast_pow();
 void fib();
-void game_of_life();
 void hops();
 void in_place_k_sort();
 void kaprekar();

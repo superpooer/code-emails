@@ -2,6 +2,7 @@
 void all_set_bits();
 
 int main(){
+	printf("fuck you");
 	abs_path();
 	all_set_bits();
 	and_m2n();
@@ -11,7 +12,6 @@ int main(){
 	clock_angle();
 	fast_pow();
 	fib();
-	game_of_life();
 	hops();
 	in_place_k_sort();
 	kaprekar();
@@ -218,10 +218,6 @@ void fib(){
 	printf("\nasm: sponge\n");
 }
 
-void game_of_life(){
-	printf("\ngame_of_life");
-}
-
 
 int alen(int *in){
 	return sizeof(in) / sizeof(typeof(*in));
@@ -309,60 +305,106 @@ void in_place_k_sort(){
 	printf("\nin_place_k_sort");
 }
 
+
+
+
+
+void i2s(int in, char *s){
+	s[3] = in%10;
+	s[2] = (in/10)%10;
+	s[1] = (in/100)%10;
+	s[0] = (in/1000);
+}
+int s2i(char *s){
+	int i = (int)s[0];
+	i *= 10;
+	i += (int)s[1];
+	i *= 10;
+	i += (int)s[2];
+	i *= 10;
+	i += (int)s[3];
+	return i;
+}
+void miniswap(char *a, char *b){
+	char tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+void sorts(char *s){
+	int sorted = 0;
+	while(!sorted){
+		sorted = 1;
+		if(s[0] > s[1]){
+			sorted = 0;
+			miniswap(&s[0], &s[1]);
+		}
+		if(s[1] > s[2]){
+			sorted = 0;
+			miniswap(&s[1], &s[2]);
+		}
+		if(s[2] > s[3]){
+			sorted = 0;
+			miniswap(&s[2], &s[3]);
+		}
+	}
+}
+void flips(char *s, char *d){
+//  d[3] = s[0];
+//	d[2] = s[1];
+//	d[1] = s[2];
+//	d[0] = s[3];
+}
+int isgrtr(char *s, char *c){
+	return (s2i(s) > s2i(c));
+}
+void subks(char *s, char *f){
+	int tmp = s2i(s) - s2i(f);
+	if(tmp < 0) tmp *= -1;
+	i2s(tmp, s);
+}
+void swaps(char *s, char *d){
+	char tmp[4];
+	for(int i = 0; i < 4; ++i){
+		tmp[i] = s[i];
+		s[i] = d[i];
+		d[i] = tmp[i];
+	}
+}
 int kapr(int in){
+	if((in == 1111)  ||
+			(in == 2222) ||
+			(in == 3333) ||
+			(in == 4444) ||
+			(in == 5555) ||
+			(in == 6666) ||
+			(in == 7777) ||
+			(in == 8888) ||
+			(in == 9999)) return -1;
 	int c = 0;
-/*	int tmp;
-	char ar[4];
-	char outr[4];
-	cv2ar(in, &ar);
-	cpar(&outr, &ar);
-	do{
-		swpar(&ar, &outr);
-		revrsar(&outr);
-		kpr_sub(&ar, &outr);
-		tmp = cva2i(&outr);
+	char s[4], f[4];
+	i2s(in, s);
+	while((s2i(s) != 6174)){
+		printf("\ntop of while: %i, %i", s2i(s), s2i(f));
+		sorts(s);
+		printf("\nafter sorts: %i, %i", s2i(s), s2i(f));
+		flips(s, f);
+		printf("\nafter flips: %i, %i", s2i(s), s2i(f));
+		if(isgrtr(s, f)){
+		printf("\nafter isgrtr: %i, %i", s2i(s), s2i(f));
+			subks(s, f);
+		printf("\nafter subks: %i, %i", s2i(s), s2i(f));
+		}
+		else {
+			swaps(s, f);
+		printf("\nafter swaps: %i, %i", s2i(s), s2i(f));
+			subks(f, s);
+		printf("\nafter subks: %i, %i", s2i(s), s2i(f));
+		}
 		++c;
-	}while(tmp != 6174);*/
+	}
 	return c;
 }
 
-
-////in in esi
-//xor eax, eax
-//loop: mov ebx, esi
-//call reverse
-//sub esi, ebx
-//and esi, 0x7fff ffff ;bitmask clear sign bit
-//inc eax
-//cmp esi, #6174
-//jne loop
-//ret
-//
-//reverse:    ;ebx
-//push eax
-//mov eax, ebx
-//idiv #10
-//mov esi, eax
-//mov eax, edx
-//imul #10
-//mov edi, eax
-//mov eax, esi
-//xor edx, edx
-//idiv #10
-//add esi, eax    ;this whole block migjt b wrong idk tired+rushed
-//mov eax, edx
-//imul #10
-//mov edi, eax
-//mov eax, esi
-//xor edx, edx
-//idiv #10
-//add esi, eax
-//mov eax, edx
-//imul #10
-//add eax, edx
-//mov ebx, eax
-//pop eax
-//ret
 void kaprekar(){
 	printf("\n\nhow many steps to kaprekar's constant (6174)");
 	printf("\nwhere the result is the numerically ordered form of the input");
@@ -370,9 +412,17 @@ void kaprekar(){
 	printf("\nand the result is the input to the next cycle of this process");
 	printf("\nuntil the result equals 6174");
 	printf("\na number where all 4 digits are the same is an invalid input");
-	printf("\n\nC: %i: %i, %i: %i, %i: %i",
-				3003, kapr(3003), 4178, kapr(4178), 9929, kapr(9929));
+	int t1, t2, t3;
+	t1 = kapr(3003);
+	t2 = kapr(4178);
+	t3 = kapr(9929);
+	if((t1 == -1) || (t2 == -1) ||(t3 == -1))
+		printf("\nkaprekar starting number must have 2 distinct digits\n");
+	else
+		printf("\n\nC: %i: %i, %i: %i, %i: %i",
+						3003, t1, 4178, t2, 9929, t3);
 }
+
 
 void multi_bracket_count(){
 	printf("\nmulti_bracket_count");
