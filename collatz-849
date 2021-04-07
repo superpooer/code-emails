@@ -1,0 +1,6 @@
+collatz sequence calc
+if n is even, next number is n/2
+if n is odd, next number is 3n+1
+conjecture: every starting number eventually reaches 1
+
+bonus: what input <=1mil gives longest sequence
